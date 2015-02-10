@@ -1,4 +1,4 @@
-# grunt-ng-constant [![Build Status](https://travis-ci.org/werk85/grunt-ng-constant.png?branch=master)](https://travis-ci.org/werk85/grunt-ng-constant)
+# grunt-ng-constant [![Build Status](https://travis-ci.org/werk85/grunt-ng-constant.png?branch=master)](https://travis-ci.org/leduong/grunt-ng-constant)
 
 > Plugin for dynamic generation of angular constant and value modules.
 
@@ -253,9 +253,9 @@ grunt.initConfig({
           foobar: false
         }
       }
-      
+
     },
-    nowrap: { 
+    nowrap: {
       options: {
         wrap: false // Disable wrapping for the 'nowrap' target
       },
@@ -279,7 +279,7 @@ The resulting module looks like:
   "foobar": false
 })
 
-; 
+;
 })(angular);
 ```
 
@@ -313,7 +313,7 @@ grunt.initConfig({
 The resulting module looks like the following:
 
 ```js
-define(["angular", "ngResource", "ngCookies"], function() { 
+define(["angular", "ngResource", "ngCookies"], function() {
  return angular.module("module2", ["test"])
 
 .constant("constant1", {
@@ -322,7 +322,7 @@ define(["angular", "ngResource", "ngCookies"], function() {
   "foobar": false
 })
 
-; 
+;
 
 });
 ```

@@ -46,6 +46,7 @@ module.exports = function(grunt) {
         options: {
           dest: 'tmp/default_options.js',
           name: 'module1',
+          debug: true,
         },
         constants: {
           'constant1': {

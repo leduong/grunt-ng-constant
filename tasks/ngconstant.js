@@ -127,5 +127,10 @@ module.exports = function (grunt) {
     grunt.log.write('Creating module ' + options.name + ' at ' + options.dest + '...');
     grunt.file.write(options.dest, result);
     grunt.log.ok();
+
+    // Out console
+    if (options.debug){
+      grunt.log.write(result);
+    }
   });
 };
