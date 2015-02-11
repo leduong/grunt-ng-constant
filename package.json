@@ -14,12 +14,10 @@
   "bugs": {
     "url": "https://github.com/werk85/grunt-ng-constant/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/werk85/grunt-ng-constant/blob/master/LICENSE-MIT"
-    }
-  ],
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://github.com/werk85/grunt-ng-constant/blob/master/LICENSE-MIT"
+  }],
   "main": "Gruntfile.js",
   "engines": {
     "node": ">= 0.10.0"
@@ -38,6 +36,8 @@
     "grunt": "~0.4.1"
   },
   "keywords": [
+    "pretty",
+    "beautify",
     "grunt",
     "gruntplugin",
     "angular",
@@ -50,6 +50,7 @@
     "generator"
   ],
   "dependencies": {
+    "node-beautify": "0.0.x",
     "jju": "^1.0.4",
     "lodash": "~2.4.1",
     "tosource": "^0.1.1"

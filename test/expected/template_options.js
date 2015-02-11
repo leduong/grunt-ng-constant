@@ -4,7 +4,6 @@ define(function (require) {
 
     var angular = require('angular');
 
-    angular.module("templateOptionsModule", [])
-    .constant("constant1", 'value1');
+    angular.module("templateOptionsModule", []).constant("constant1", 'value1');
 
 });

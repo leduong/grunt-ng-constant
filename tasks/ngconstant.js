@@ -29,10 +29,10 @@ var SERIALIZERS = {
   }
 };
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
   function requiredOptions(options, properties) {
     var pluralize = grunt.util.pluralize;
-    var missing = properties.filter(function (key) {
+    var missing = properties.filter(function(key) {
       return !options[key];
     });
 
@@ -64,7 +64,7 @@ module.exports = function (grunt) {
   // Add delimiters that do not conflict with grunt
   grunt.template.addDelimiters(MODULE_NAME, '{%', '%}');
 
-  grunt.registerMultiTask(MODULE_NAME, 'Dynamic angular constant generator task.', function () {
+  grunt.registerMultiTask(MODULE_NAME, 'Dynamic angular constant generator task.', function() {
     var options = this.options({
       deps: [],
       wrap: '{%= __ngModule %}',
@@ -83,7 +83,7 @@ module.exports = function (grunt) {
     requiredOptions(options, ['name', 'dest']);
 
     // Merge target configuration in global definition
-    _.forEach(['constants', 'values'], function (key) {
+    _.forEach(['constants', 'values'], function(key) {
       var resolve = _.bind(resolveKey, this, key);
       _.merge(resolve(options), resolve(this.data));
     }, this);
@@ -92,7 +92,7 @@ module.exports = function (grunt) {
     var serializer = resolveSerializer(options.serializer);
 
     var transformData = function dataTransformer(data) {
-      return _.map(data, function (value, name) {
+      return _.map(data, function(value, name) {
         return {
           name: name,
           value: serializer.call(this, value, options.serializerOptions, options)
@@ -123,13 +123,19 @@ module.exports = function (grunt) {
       });
     }
 
+    // Beautify specified files.
+    var beautifier = require('node-beautify');
+    result = beautifier.beautifyJs(result, {
+      indentSize: 4
+    });
+
     // Write the module to disk
     grunt.log.write('Creating module ' + options.name + ' at ' + options.dest + '...');
     grunt.file.write(options.dest, result);
     grunt.log.ok();
 
     // Out console
-    if (options.debug){
+    if (options.debug) {
       grunt.log.write(result);
     }
   });
